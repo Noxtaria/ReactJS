@@ -3,24 +3,24 @@ import React from "react";
 
 const Car = ({children, color}) => {
 
-    const colorInfo = color ? (<p>Couleur: {color}</p>) : (<p>Couleur: Non défini</p>);
-
-    if(children) {
-        return(
-        <div style={ {backgroundColor: 'pink', width: '400px', padding: '10px', margin: '5px auto' } }>
-            <p>Marque : {children}</p>
-            { colorInfo }
-        </div>
-        )
+    let colorInfo = "";
+    if (color) {
+        colorInfo = color;
     } else {
-        return (
-            <div style={ {backgroundColor: 'pink', width: '400px', padding: '10px', margin: '5px auto' } }>
-            <p>Pas de data!</p>
-        </div>
-        )
-        
+        colorInfo = "Non défini";
     }
 
+    return children && (
+
+        <div style={ {backgroundColor: 'pink', width: '400px', padding: '10px', margin: '5px auto' } }>
+                <p>Marque : {children}</p>
+                {/* { color ? <p>Couleur: {color}</p> : <p>Couleur: Non défini</p> } */}
+                {/* <p>Couleur: { color ? color : "Non défini"}</p> */}
+                <p>Couleur: {colorInfo}</p>
+            </div>
+    )
+        
+            
 }
 
 export default Car;

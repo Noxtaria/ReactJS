@@ -5,13 +5,15 @@ import './App.css';
 class App extends Component {
 
   state = {
-    titre: "Mon Catalogue Voitures"
+    titre: "Mon Catalogue Voitures",
+    color: "green"
   }
 
   render() {
     return (
       <div className="App">
-        <Mycars title={this.state.titre}/>
+        <Mycars title={this.state.titre}
+                color={this.state.color}/>
       </div>
     );
   }
