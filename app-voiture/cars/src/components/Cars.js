@@ -1,5 +1,5 @@
 import React from "react";
-
+import Wrapper from "./Wrapper";
 
 const Car = ({children, color}) => {
 
@@ -12,12 +12,11 @@ const Car = ({children, color}) => {
 
     return children && (
 
-        <div style={ {backgroundColor: 'pink', width: '400px', padding: '10px', margin: '5px auto' } }>
-                <p>Marque : {children}</p>
-                {/* { color ? <p>Couleur: {color}</p> : <p>Couleur: Non défini</p> } */}
-                {/* <p>Couleur: { color ? color : "Non défini"}</p> */}
-                <p>Couleur: {colorInfo}</p>
-            </div>
+        <Wrapper>
+            <p>Marque : {children}</p>
+            <p>Couleur: {colorInfo}</p>
+        </Wrapper>
+                
     )
         
             

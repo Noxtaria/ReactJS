@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Car from "./Cars";
+import Wrapper from "./Wrapper";
 
 class Mycars extends Component {
 
@@ -14,8 +15,9 @@ class Mycars extends Component {
         return ( 
             
             <div>
-                
+                <Wrapper>
                 <h1 style={{color}}>{title}</h1>
+                </Wrapper>
 
                 <Car color="Red"> {this.state.cars[0]} </Car>
                 <Car>{this.state.cars[1]}</Car>
