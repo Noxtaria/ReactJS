@@ -1,22 +1,27 @@
 import React, { Component } from "react";
 import Car from "./Cars";
 import Wrapper from "./Wrapper";
+import MyHeader from "./MyHeader";
 
 class Mycars extends Component {
+
+
 
     state = {
         cars: ["Ford", "Mercedes", "Audi"]
     }
-    
+
     render() {
 
-        const {title, color} = this.props;
-        
-        return ( 
-            
+        return (
+
             <div>
                 <Wrapper>
-                <h1 style={{color}}>{title}</h1>
+                <MyHeader 
+                        myStyle={this.props.color}
+                    >
+                        {this.props.title}
+                    </MyHeader>
                 </Wrapper>
 
                 <Car color="Red"> {this.state.cars[0]} </Car>
@@ -25,7 +30,7 @@ class Mycars extends Component {
 
             </div>
         )
-        
+
     }
 }
 

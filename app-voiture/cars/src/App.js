@@ -12,13 +12,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Mycars title={this.state.titre}
-                color={this.state.color}/>
-      </div>
-    );
-  }
+        <Mycars 
+            title={this.state.titre}
+            color={this.state.color}
+            style={{color: 'red'}}
+        />
 
-  
+
+      </div>
+    )
+  }
 }
 
 export default App;
