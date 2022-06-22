@@ -3,30 +3,50 @@ import Car from './Cars'
 
 class Mycars extends Component {
 
-    noCopy = () => {
-        alert('merci de ne pas copier le texte');
+    state = {
+        voitures: [
+            {name: 'Ford', color: 'red', year: 2000},
+            {name: 'Mercedes', color: 'black', year: 2010},
+            {name: 'Audi', color: 'green', year: 1972},
+        ],
+
+        titre: 'Mon Catalogue Voitures 2'
     }
 
-    addStyle = (e) => {
-        console.log(e.target)
+    addTenYears = () => {
+        
+        
+        const updatedState = this.state.voitures.map((param) => {
+            return param.year -= 10;
+        }) 
 
-        if(e.target.classList.contains('styled')) {
-            e.target.classList.remove('styled')
-        }else{   
-            e.target.classList.add('styled')
-        }
+        this.setState({
+            updatedState
+        }) 
+ 
+        
     }
 
     render() {
+
+        const year = new Date().getFullYear();
+
         return (
             <div>
-                <h1 onMouseOver={this.addStyle}>{this.props.title}</h1>
+                <h1>{this.state.titre}</h1>
+                
+                <button onClick={this.addTenYears}> +10 ans</button>
 
-                <p onCopy={this.noCopy}>Lorem Ipsum Parabelum</p>
-                    
-                <Car color="red">Ford</Car>
-                <Car>Mercedes</Car>
-                <Car color="green"></Car>
+            {
+                this.state.voitures.map((voiture, index) => {
+                    return( 
+
+                        <div key ={index}>
+                            <Car name={voiture.name} color={voiture.color} year={year - voiture.year + ' ans'}/> 
+                        </div>
+                    )
+                })
+            }
             </div>
            
         )
